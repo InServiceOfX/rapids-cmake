@@ -25,7 +25,15 @@
 # cases it can fail due to CMAKE_MODULE_PREFIX not being exported properly
 
 # Enforce the minimum required CMake version for all users
-cmake_minimum_required(VERSION 3.23.1 FATAL_ERROR)
+# Originally,
+# cmake_minimum_required(VERSION 3.23.1 FATAL_ERROR)
+# but Ubuntu Linux 22.04 LTS has as policy 3.22.1 for cmake in its apt
+# repositories.
+cmake_minimum_required(VERSION 3.22.1 FATAL_ERROR)
+
+# Include a project command because otherwise cmake warns "top-level
+# CMakeLists.txt" must contain a literal call to project() command.
+project(rapids-cmake)
 
 set(rapids-cmake-dir "${CMAKE_CURRENT_LIST_DIR}/rapids-cmake")
 if(NOT DEFINED CACHE{rapids-cmake-dir})

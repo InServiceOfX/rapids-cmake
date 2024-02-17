@@ -16,7 +16,11 @@
 include_guard(GLOBAL)
 
 cmake_policy(PUSH)
-cmake_policy(VERSION 3.23)
+# Orignally,
+#cmake_policy(VERSION 3.23)
+# But Ubuntu Linux 22.04 LTS supports only 3.22 as the latest for CMake in its
+# apt repositories. Let's follow that.
+cmake_policy(VERSION 3.22)
 
 #[=======================================================================[.rst:
 rapids_find_generate_module
