@@ -26,13 +26,21 @@ endif()
 # Allow users to control which GitHub repo is fetched
 if(NOT rapids-cmake-repo)
   # Define a default repo if the user doesn't set one
-  set(rapids-cmake-repo rapidsai/rapids-cmake)
+  # Originally,
+  #set(rapids-cmake-repo rapidsai/rapids-cmake)
+  # but we want to point to our fork of this repo.
+  set(rapids-cmake-repo InServiceOfX/rapids-cmake)
 endif()
 
 # Allow users to control which branch is fetched
 if(NOT rapids-cmake-branch)
   # Define a default branch if the user doesn't set one
-  set(rapids-cmake-branch "branch-${rapids-cmake-version}")
+  # Originally,
+  #set(rapids-cmake-branch "branch-${rapids-cmake-version}")
+  # But we want to point to a branch on our fork. Keep variable
+  # rapids-cmake-version to track what version NVIDIA is basing their default
+  # upon.
+  set(rapids-cmake-branch "master")
 endif()
 
 # Allow users to control the exact URL passed to FetchContent
